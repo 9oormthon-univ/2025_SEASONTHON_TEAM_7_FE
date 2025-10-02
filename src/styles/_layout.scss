@@ -7,6 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -15,7 +16,7 @@ body {
   margin: 0 auto;
   padding: variables.$spacing-md;
   background-color: variables.$background-color;
-  min-height: 100vh;
+  // min-height: 100vh;
 }
 
 header,

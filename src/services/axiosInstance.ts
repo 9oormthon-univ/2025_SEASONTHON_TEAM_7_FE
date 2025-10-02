@@ -14,8 +14,10 @@ const attachInterceptors = (instance: AxiosInstance) => {
     })();
 
     const url = config.url || "";
-    const isAuthEndpoint = url.includes("/login"); // ||
-    // url.includes('/'); // 추후 인증 엔드포인트 추가 시 수정 (온보딩 등)
+    const isAuthEndpoint = url.includes("/login") || 
+                          url.includes("/signup") || 
+                          url.includes("/auth") ||
+                          url.includes("/onboard");
 
     if (!config.headers) config.headers = {} as AxiosRequestHeaders;
 
@@ -43,7 +45,7 @@ const attachInterceptors = (instance: AxiosInstance) => {
 
         // 특정 페이지들은 리다이렉트하지 않도록 설정
         const currentPath = window.location.pathname;
-        const noRedirectPaths = ["/login", "/signup"]; // 추후 수정 예정
+        const noRedirectPaths = ["/login", "/signup", "/splash", "/onboard/1", "/onboard/2"];
         
         // 특정 엔드포인트들은 리다이렉트하지 않도록 설정 (토큰 없이도 호출 가능한 API)
         const requestUrl = error.config?.url || "";

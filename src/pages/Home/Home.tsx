@@ -20,10 +20,13 @@ const Home = () => {
 
   // 액세스토큰 및 온보딩 체크
   useEffect(() => {
-    const hasAccessToken = !!tokenService.getAccessToken();
+    const accessToken = tokenService.getAccessToken();
     const isOnboarded = onboardService.isOnboarded();
-    
-    if (!hasAccessToken || !isOnboarded) {
+    if (!accessToken) {
+      navigate('/login');
+      return;
+    }
+    if (!isOnboarded) {
       navigate('/splash');
       return;
     }

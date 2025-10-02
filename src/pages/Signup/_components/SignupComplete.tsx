@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLayout } from '@/services/hooks/useLayout';
 import SignupCompleteIcon from '@/assets/Login/signup-complete.svg';
 
@@ -13,6 +13,7 @@ const SignupComplete: React.FC<SignupCompleteProps> = ({
   onBack
 }) => {
   const { setLayoutConfig } = useLayout();
+  const [isIconLoaded, setIsIconLoaded] = useState(false);
   
   useEffect(() => {
     setLayoutConfig({
@@ -30,7 +31,15 @@ const SignupComplete: React.FC<SignupCompleteProps> = ({
         <div className="complete-title">
           프로필 설정 완료
         </div>
-        <img src={SignupCompleteIcon} alt="signup-complete" />
+        <div className="signup-complete-icon-container">
+          {!isIconLoaded && <div className="signup-complete-skeleton"></div>}
+          <img 
+            src={SignupCompleteIcon} 
+            alt="signup-complete" 
+            onLoad={() => setIsIconLoaded(true)}
+            style={{ display: isIconLoaded ? 'block' : 'none' }}
+          />
+        </div>
         <button 
           type="button" 
           className="btn btn-primary extra-info-btn submit-btn"

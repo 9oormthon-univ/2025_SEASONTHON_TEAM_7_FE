@@ -7,15 +7,14 @@
   margin-bottom: 1.9375rem;
 }
 
-
 .extra-info-form {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 120px); // 헤더 높이를 제외한 전체 높이
-  
+
   .form-group {
     margin-bottom: 2rem;
-    
+
     label {
       display: block;
       margin-bottom: 16px;
@@ -41,18 +40,18 @@
         border-color: variables.$primary-color;
       }
     }
-    
+
     textarea {
       resize: vertical;
       min-height: 100px;
       font-family: inherit;
     }
-    
+
     select {
       background: white;
       cursor: pointer;
     }
-    
+
     .character-count {
       text-align: right;
       margin-top: 0.5rem;
@@ -65,20 +64,20 @@
 // 연령대 선택 컴포넌트 스타일
 .age-range-selector {
   margin-bottom: 2rem;
-  
+
   .age-range-label {
     display: block;
     margin-bottom: 16px;
     @extend .label;
   }
-  
+
   .age-range-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 12px;
   }
-  
+
   .age-range-btn {
     padding: 10px 16px;
     border-radius: 4px;
@@ -90,7 +89,7 @@
     transition: all 0.3s ease;
     min-height: 2.5rem;
     border: solid 1px variables.$outline-color;
-    
+
     &.selected {
       background: variables.$secondary-color;
       border-color: solid 1px variables.$outline-color;
@@ -100,15 +99,34 @@
 
 .extra-info-btn {
   margin-top: auto;
+  width: full;
   &.submit-btn {
     margin-top: 91px;
   }
 }
 
+// 회원가입 완료 아이콘 스켈레톤
+.signup-complete-icon-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.signup-complete-skeleton {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
 // 관심사 선택 컴포넌트 스타일
 .interest-selector {
   margin-bottom: 2rem;
-  
+
   .interest-label {
     display: block;
     margin-bottom: 0.5rem;
@@ -120,13 +138,13 @@
     margin-bottom: 1.5rem;
     @extend .body;
   }
-  
+
   .interest-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
-  
+
   .interest-btn {
     padding: 14px 0px;
     border: variables.$outline-color 1px solid;
@@ -139,7 +157,7 @@
     min-height: 2.5rem;
     text-align: center;
     white-space: nowrap;
-    
+
     &.selected {
       background: variables.$secondary-color;
     }

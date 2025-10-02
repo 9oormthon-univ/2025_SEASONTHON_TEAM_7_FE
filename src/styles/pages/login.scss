@@ -37,6 +37,30 @@
   vertical-align: middle;
 }
 
-.logo-img {
+.logo-img-container {
+  position: relative;
   padding: 69px 18.21px 0px 83px;
+}
+
+.logo-img {
+  width: 100%;
+  height: auto;
+}
+
+.logo-skeleton {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }

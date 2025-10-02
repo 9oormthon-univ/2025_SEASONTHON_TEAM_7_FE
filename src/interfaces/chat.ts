@@ -39,6 +39,7 @@ export type MyChatBaseType = {
   lastMessage: string;
   lastMessageAt: TimeStamp;
   unreadCount: number;
+  status: "OPEN" | "CLOSE";
 };
 
 export type MyChatResponseType = ReponseBaseType & {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLayout } from '@/services/hooks/useLayout';
-import { tokenService } from '@/services/auth/tokenService';
+// import { tokenService } from '@/services/auth/tokenService';
 import ChzSvg from '@/assets/Onboard/chz.svg';
 
 const Splash = () => {
@@ -20,13 +20,13 @@ const Splash = () => {
 
   // 액세스토큰 체크 후 리다이렉트
   useEffect(() => {
-    const hasAccessToken = !!tokenService.getAccessToken();
+    // const accessToken = tokenService.getAccessToken();
     
-    if (hasAccessToken) {
-      // 액세스토큰이 있으면 바로 홈으로
-      navigate('/');
-      return;
-    }
+    // if (accessToken) {
+    //   // 액세스토큰이 있으면 바로 홈으로
+    //   navigate('/');
+    //   return;
+    // }
     
     // 액세스토큰이 없으면 2초 후 온보딩 1로 이동
     const timer = setTimeout(() => {

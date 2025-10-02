@@ -45,7 +45,7 @@ const Review = () => {
         status: "COMPLETED",
       });
 
-      navigate("/chat");
+      navigate("/");
     } catch (err: unknown) {
       console.error("evaluate manner score failed", err);
     }

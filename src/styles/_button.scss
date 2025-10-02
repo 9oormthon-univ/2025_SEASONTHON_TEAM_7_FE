@@ -7,7 +7,7 @@
   display: inline-block;
   padding: variables.$spacing-sm variables.$spacing-md;
   border: 1px solid variables.$outline-color;
-  width: 358px;
+  max-width: 358px;
   height: 52px;
   @extend .label;
   text-align: center;
@@ -46,7 +46,8 @@
 .btn-kakao {
   @extend .btn-primary;
   cursor: pointer;
-  background: #FAE100;
+  background: #fae100;
+  width: 80vw;
 
   .inner-container {
     display: flex;
