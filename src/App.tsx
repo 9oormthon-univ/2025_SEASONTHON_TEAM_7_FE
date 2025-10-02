@@ -21,14 +21,25 @@ import Layout from "./components/Layout";
 import { LayoutProvider } from "./contexts/LayoutProvider";
 import { ChatLab } from "./components/chat";
 import ScrollToTop from "./utils/scrollToTop";
+import { useAuthGuard } from "./services/hooks/useAuthGuard";
 
 function App() {
   return (
     <BrowserRouter>
-      <LayoutProvider>
-        <Layout>
-          <ScrollToTop />
-          <Routes>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+function AppContent() {
+  // 전역 인증 가드 적용
+  useAuthGuard();
+  
+  return (
+    <LayoutProvider>
+      <Layout>
+        <ScrollToTop />
+        <Routes>
             {/* 온보딩 페이지 */}
             <Route path="/splash" element={<Splash />} />
             <Route path="/onboard/1" element={<Onboard1 />} />
@@ -64,10 +75,9 @@ function App() {
                 </ProtectedRoute>
               }
             />
-          </Routes>
-        </Layout>
-      </LayoutProvider>
-    </BrowserRouter>
+        </Routes>
+      </Layout>
+    </LayoutProvider>
   );
 }
 
